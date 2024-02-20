@@ -38,13 +38,13 @@ public class List {
     /** GIVE Textual representation of this list. */
     public String toString() {
         Node current = first;
-        StringBuilder str = new StringBuilder();
+       String str = "";
         while(current != null){
-            str.append(current.cp.toString());
+            str= str + current.cp.toString();
             current = current.next;
 
         }
-        return str.toString();
+        return str;
         // Your code goes here
     }
 
