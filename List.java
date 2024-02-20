@@ -39,16 +39,15 @@ public class List {
     public String toString() {
         Node current = this.first;
         StringBuilder str = new StringBuilder();
-        int value = 0;
         if(size == 0){
             return null;
         }
         while(current != null){
-            str.append(current.cp);
+            str.append(current.cp).append(" ");
             current = current.next;
 
         }
-        return str.toString();
+        return str.toString().trim();
         // Your code goes here
     }
 
@@ -75,15 +74,20 @@ public class List {
      *  given chr to the beginning of this list. */
     public void update(char chr) {
         Node current = first.next;
+        boolean found = false;
         while(current != null){
             if(current.cp.equals(chr)) {
               current.cp.count++ ;
+              found = true;
               break;
             }
             current = current.next;
         }
-        addFirst(chr);
-        size ++;
+        if(!found) {
+            addFirst(chr);
+            size ++;
+        }
+
     }
 
     /** GIVE If the given character exists in one of the CharData objects
@@ -115,7 +119,7 @@ public class List {
      *  If the index is negative or is greater than the size of this list, 
      *  throws an IndexOutOfBoundsException. */
     public CharData get(int index) {
-        if (index > size || index < 0) {
+        if(index>=size || index < -1){
             throw new IndexOutOfBoundsException();
         }
         Node current = first.next;
