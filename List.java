@@ -77,7 +77,7 @@ public class List {
         while(current != null){
             if(current.cp.equals(chr)) {
               current.cp.count++ ;
-              break;
+              return;
             }
             current = current.next;
         }
