@@ -43,11 +43,11 @@ public class List {
         Node current = first;
        String str = "(";
         while(current != null){
-            str= str + current.cp.toString();
+            str= str + current.cp.toString() + " ";
             current = current.next;
 
         }
-        return str.substring(0,str.length()-1)+ ")";
+        return (str.substring(0,str.length()-1)+ ")");
         // Your code goes here
     }
 
