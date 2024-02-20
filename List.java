@@ -37,17 +37,14 @@ public class List {
     
     /** GIVE Textual representation of this list. */
     public String toString() {
-        Node current = this.first;
+        Node current = first;
         StringBuilder str = new StringBuilder();
-        if(size == 0){
-            return null;
-        }
         while(current != null){
-            str.append(current.cp).append(" ");
+            str.append(current.cp);
             current = current.next;
 
         }
-        return str.toString().trim();
+        return str.toString();
         // Your code goes here
     }
 
@@ -85,7 +82,6 @@ public class List {
         }
         if(!found) {
             addFirst(chr);
-            size ++;
         }
 
     }
@@ -119,17 +115,15 @@ public class List {
      *  If the index is negative or is greater than the size of this list, 
      *  throws an IndexOutOfBoundsException. */
     public CharData get(int index) {
-        if(index>=size || index < -1){
+        if(index >= size || index < 0){
             throw new IndexOutOfBoundsException();
         }
-        Node current = first.next;
-        for (int i = 0; i < size; i++) {
-            if (i == index) {
-                return current.cp;
-            }
+        boolean found =false;
+        Node current = first;
+        for (int i = 0; i < index; i++) {
             current = current.next;
         }
-        throw new IndexOutOfBoundsException();
+      return current.cp;
     }
 
     /** Returns an array of CharData objects, containing all the CharData objects in this list. */
