@@ -40,7 +40,7 @@ public class List {
         Node current = first;
         StringBuilder str = new StringBuilder();
         while(current != null){
-            str.append(current.cp);
+            str.append(current.cp.toString());
             current = current.next;
 
         }
@@ -83,7 +83,6 @@ public class List {
         if(!found) {
             addFirst(chr);
         }
-
     }
 
     /** GIVE If the given character exists in one of the CharData objects
