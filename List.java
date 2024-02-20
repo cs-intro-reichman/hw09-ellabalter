@@ -37,14 +37,17 @@ public class List {
     
     /** GIVE Textual representation of this list. */
     public String toString() {
+        if(size == 0){
+            return "";
+        }
         Node current = first;
-       String str = "";
+       String str = "(";
         while(current != null){
             str= str + current.cp.toString();
             current = current.next;
 
         }
-        return str;
+        return str.substring(0,str.length()-1)+ ")";
         // Your code goes here
     }
 
@@ -70,17 +73,10 @@ public class List {
      *  increments its counter. Otherwise, adds a new CharData object with the
      *  given chr to the beginning of this list. */
     public void update(char chr) {
-        Node current = first.next;
-        boolean found = false;
-        while(current != null){
-            if(current.cp.equals(chr)) {
-              current.cp.count++ ;
-              found = true;
-              break;
-            }
-            current = current.next;
+        if(indexOf(chr)>-1){
+            get(indexOf(chr)).count++;
         }
-        if(!found) {
+        else{
             addFirst(chr);
         }
     }
