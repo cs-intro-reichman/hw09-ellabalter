@@ -73,13 +73,17 @@ public class List {
      *  increments its counter. Otherwise, adds a new CharData object with the
      *  given chr to the beginning of this list. */
     public void update(char chr) {
-        if(indexOf(chr)>-1){
-            get(indexOf(chr)).count++;
+        Node current = first;
+        while(current != null){
+            if(current.cp.equals(chr)) {
+              current.cp.count++ ;
+              break;
+            }
+            current = current.next;
         }
-        else{
             addFirst(chr);
         }
-    }
+
 
     /** GIVE If the given character exists in one of the CharData objects
      *  in this list, removes this CharData object from the list and returns
